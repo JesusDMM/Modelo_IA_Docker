@@ -1,0 +1,11 @@
+FROM node:18-alpine
+
+RUN npm install -g http-server
+
+WORKDIR /app
+
+COPY static/ /app/
+
+EXPOSE 8080
+
+CMD ["http-server", "/app", "-p", "8080", "--index", "index.html"]

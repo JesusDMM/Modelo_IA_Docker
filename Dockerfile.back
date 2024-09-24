@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y python3 python3-pip
+
+WORKDIR /app
+
+COPY app.py /app/
+COPY lib.txt /app/
+COPY modelo /app/modelo
+
+RUN pip install --no-cache-dir -r lib.txt
+
+EXPOSE 5000
+
+CMD ["python3", "app.py"]
