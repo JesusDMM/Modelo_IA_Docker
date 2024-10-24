@@ -27,5 +27,5 @@ Página donde te muestra la enfermedad clasificada por el modelo y un porcentaje
 
 ![''](imagenes/modelo.jpeg)
 
-## Rerencias
+## Referencias
 El trabajo relacionado con el modelo lo encuentras en el siguiente [enlace](https://github.com/JesusDMM/Modelos_IA)
