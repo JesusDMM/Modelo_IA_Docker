@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing import image
 app = Flask(__name__)
 CORS(app)
 
-modelo = tf.keras.models.load_model('modelo/Modelo_EfficientNetV2B0.keras')
+modelo = tf.keras.models.load_model('modelo/Modelo_EfficientNetV2B0_cana.keras')
 
 def preprocess_image(image, target_size):
     img_array = np.array(image)
@@ -37,7 +37,7 @@ def upload_file():
         imagen_preprocesada = preprocess_image(img, target_size=(493, 493))
         predicciones = modelo.predict(imagen_preprocesada)
         clase_predicha = np.argmax(predicciones, axis=1)
-        clases = ['Dried Leaves', 'Healthy', 'Mosaic', 'RedRot', 'Rust', 'Yellow']
+        clases = ['Healthy', 'Mosaic', 'RedRot', 'Rust', 'Yellow']
         enfermedad = clases[clase_predicha[0]]
         porcentaje = round(float(np.max(predicciones)) * 100, 2)
         
